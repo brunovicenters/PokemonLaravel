@@ -63,7 +63,16 @@ class PokemonController extends Controller
      */
     public function update(Request $request, Pokemon $pokemon)
     {
-        //
+        $pokemon->update([
+            'name' => $request->name,
+            'level' => $request->level,
+            'number' => $request->number,
+            'nickname' => $request->nickname,
+            'region' => $request->region,
+            'updated_at' => now(),
+        ]);
+
+        return redirect()->route('pokemon.index');
     }
 
     /**
