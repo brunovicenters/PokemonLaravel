@@ -47,7 +47,7 @@ class PokemonController extends Controller
      */
     public function show(Pokemon $pokemon)
     {
-        //
+        return view('pokemon.show', ['pokemon' => $pokemon]);
     }
 
     /**
@@ -55,7 +55,7 @@ class PokemonController extends Controller
      */
     public function edit(Pokemon $pokemon)
     {
-        //
+        return view('pokemon.edit', ['pokemon' => $pokemon]);
     }
 
     /**
@@ -71,6 +71,8 @@ class PokemonController extends Controller
      */
     public function destroy(Pokemon $pokemon)
     {
-        //
+        $pokemon->delete();
+
+        return redirect()->route('pokemon.index');
     }
 }
